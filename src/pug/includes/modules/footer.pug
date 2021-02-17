@@ -1,0 +1,21 @@
+section.container
+  h1 Часть 4
+  .data-container
+    div
+      .data-test
+        div
+          label.label(for='num') Количество пар скобок:
+          input(type='number' id='num' value='5')
+        div
+          .label(for='num-res') Результат
+          .data-test-res#num-res
+        a.btn(href='#' id='num-btn') Ok
+    div
+      .data-test
+        div
+          label.label(for='txt-par') Строка для проверки:
+          input(type='text' id='txt-par' )
+        div
+          .label Результат
+          .data-test-res#par-res
+        a.btn(href='#' id='par-btn') Проверить

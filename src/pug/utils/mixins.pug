@@ -1,0 +1,34 @@
+mixin params-list(value)
+  ul.product-param
+    each val, key in value
+      li
+        span=key
+        span.dots
+        span=val
+
+mixin item(val)
+  .product-item
+    a.product-img(href=val.href)
+      img(src=val.src alt=val.descr)
+
+    .product-info
+      .product-descr
+        .product-descr-title(data-edit-product data-id=val.id)= val.descr
+        +params-list(val.param)
+      .product-total
+        .product-price
+          span=val.price
+          span='руб.'
+        .product-add-cart
+          a(href=val.href class="btn") В корзину
+          a.one-click(href="#" data-target="#fastOrderPopup" data-toggle="modal" data-id=val.id) Купить в 1 клик
+
+mixin menu-list(lev, levNext, count)
+  -for(var i=0; i<count; i++)
+    li.menu-item(class='lvl-'+lev data-menu-lvl=lev)
+      if !levNext
+        a.menu-link(href='#' )=lev + ' уровень'
+      else
+        a.menu-link(href='#' )=lev + ' уровень'
+        ul.sub-menu(class='lvl-' + (lev + 1))
+          +menu-list(lev + 1,(lev < 3),levCount[lev])

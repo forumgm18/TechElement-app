@@ -1,0 +1,55 @@
+.menu {
+  border: 1px solid var(--border-color-default);
+  display: none;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  width: fit-content;
+    &-btn {
+      position: relative;
+      cursor: pointer;
+        &:hover{
+          .menu {display: block}
+        }
+    }
+    &-item {
+      position: relative;
+      display: block;
+      width: fit-content;
+      padding: .2em 1em ;
+
+        &.opened {
+        background-color: #dedede;
+        > .sub-menu {
+          display: block;
+        }
+      }
+    }
+    &-link {
+      display: block;
+      white-space: nowrap;
+      color: inherit;
+      text-decoration: none;
+        &:hover {text-decoration: none;}
+    }
+}
+
+.sub{
+  &-menu {
+    --lvl: 1;
+    border: 1px solid var(--border-color-default);
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: fit-content;
+    display: none;
+    z-index: calc(var(--lvl)*10);
+    &.lvl-1 {--lvl: 0;}
+    &.lvl-2 {--lvl: 1;}
+    &.lvl-3 {--lvl: 2;}
+    &.lvl-4 {--lvl: 3;}
+  }
+}
